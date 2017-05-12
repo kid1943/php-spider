@@ -87,13 +87,15 @@ function crawler($url){
 
  
 function main(){  
-    $current_url = "http://www.yellowsb.com";//初始url
+    $current_url = "http://bt.shousibaocai.com/search/";//初始url
+	$keyword = "波多";
+	$current_url = $current_url.$keyword;
     $fp_puts = fopen("url.txt","ab");//记录url列表
     $fp_gets = fopen("url.txt","r");//保存url列表
 
       $handle = fopen($current_url, "r");  
     if($handle){  
-        $content = stream_get_contents($handle, 1024*1024); //获取最大为1M的内容 
+        $content = stream_get_contents($handle, 10*1024*1024); //获取最大为1M的内容 
         echo $content;
         return $content;  
     }else{  
